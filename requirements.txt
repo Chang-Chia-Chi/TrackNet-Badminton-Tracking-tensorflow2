@@ -1,0 +1,4 @@
+numpy
+focal-loss
+opencv-python
+tensorflow
