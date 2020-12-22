@@ -109,8 +109,8 @@ def data_generator(batch_size, x_list, y_list, frame_stack):
     y_list --> heat map path list
     frame_stack --> number of frames to stack for one input
     """
-	x_list = sorted(x_list)
-	y_list = sorted(y_list)
+    x_list = sorted(x_list)
+    y_list = sorted(y_list)
     data_size = len(x_list)
 
 	# initialize images and heatmaps array
