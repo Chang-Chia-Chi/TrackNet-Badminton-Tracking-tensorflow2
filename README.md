@@ -22,37 +22,37 @@
 |resE_4 x 2|-          |256  |-      |-     |BN+Relu   |  
 |resU_1 + concat|-          |128+128  |-      |-     |BN+Relu   |  
 |resDE_5 x 3|-          |128   |-      |-     |BN+Relu   | 
-|resU_2+concat|-          |64+64  |-      |-     |BN+Relu   |   
+|resU_2 + concat|-          |64+64  |-      |-     |BN+Relu   |   
 |resDE_6 x 2|-          |64   |-      |-     |BN+Relu   | 
-|resU_3+concat|-          |32+32  |-      |-     |BN+Relu   |   
+|resU_3 + concat|-          |32+32  |-      |-     |BN+Relu   |   
 |resDE_7 x 2|-          |32   |-      |-     |BN+Relu   | 
 |resU_4|-          |16  |-      |-     |BN+Relu   |     
 |conv3|3 x 3      |64   |2      |1     |BN+Relu   |   
 |conv4|3 x 3      |64   |2      |1     |BN+Relu   |   
 |conv5|3 x 3      |256   |2      |1     |BN+Relu+Softmax|   
 
-Sturcture of res-block-encoder     
+Sturcture of res-block-encoder(resE)     
 |Layer|Filter size|Depth|Padding|Stride|Activation|    
 |-----|-----------|-----|-------|------|----------|   
 |conv1|1 x 1      |n    |0      |1     |BN+Relu   |   
 |conv2|3 x 3      |n    |2      |1     |BN+Relu   |   
 |conv3|1 x 1      |2n   |0      |1     |BN+Relu   |   
 
-Sturcture of res-block-downsamping   
+Sturcture of res-block-downsamping(resD)   
 |Layer|Filter size|Depth|Padding|Stride|Activation|    
 |-----|-----------|-----|-------|------|----------|   
 |conv1|1 x 1      |n    |0      |1     |BN+Relu   |   
 |conv2|3 x 3      |n    |2      |2     |BN+Relu   |   
 |conv3|1 x 1      |2n   |0      |1     |BN+Relu   |   
 
-Sturcture of res-block-decoder     
+Sturcture of res-block-decoder(resDE)     
 |Layer|Filter size|Depth|Padding|Stride|Activation|    
 |-----|-----------|-----|-------|------|----------|   
 |conv1|1 x 1      |n    |0      |1     |BN+Relu   |   
 |conv2|3 x 3      |n    |2      |1     |BN+Relu   |   
 |conv3|1 x 1      |n    |0      |1     |BN+Relu   |   
 
-Sturcture of res-block-upsamping    
+Sturcture of res-block-upsamping(resU)    
 |Layer|Filter size|Depth|Padding|Stride|Activation|    
 |-----|-----------|-----|-------|------|----------|   
 |conv1|1 x 1      |n    |0      |1     |BN+Relu   |   
