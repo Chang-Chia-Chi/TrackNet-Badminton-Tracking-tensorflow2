@@ -5,7 +5,7 @@
 **TrackNet** is a deep learning network for higi-speed and tiny objects tracking invented by National Chiao-Tung University in Taiwan. It's a FCN model adpotes **VGG16** to generate feature map and **DeconvNet** to decode using pixel-wise classification. TrackNet could take multiple consecutive frames as input, model will learn not only object tracking but also trajectory to enhance its capability of positioning and recognition. TrackNet will generate gaussian heat map centered on ball to indicate position of the ball. Binary cross-entropy is used as loss function to compute difference between heat map of prediction and ground truth.
 
 ## Modification
-### Combine **ResNet** and **U-Net** to form network architecture.   
+### 1. Combine **ResNet** and **U-Net** to form network architecture.   
 ![image](https://github.com/Chang-Chia-Chi/TrackNet-Badminton-Tracking-tensorflow2/blob/main/pics/model_structure.jpg)    
 
 |Layer|Filter size|Depth|Padding|Stride|Activation|   
@@ -56,7 +56,7 @@ Sturcture of res-block-upsamping
 |Layer|Filter size|Depth|Padding|Stride|Activation|    
 |-----|-----------|-----|-------|------|----------|   
 |conv1|1 x 1      |n    |0      |1     |BN+Relu   |   
-|convT1|3 x 3     |n    |2      |1     |BN+Relu   |   
+|convT1|3 x 3     |n    |0      |2     |BN+Relu   |   
 |conv2|1 x 1      |n    |0      |1     |BN+Relu   |   
 
 ### 2. Use Conv2Dtranspose instead for upsampling in decoder, matching structure of ResNet in encoder.
@@ -145,8 +145,8 @@ TrackNet-Badminton-Tracking-tensorflow2
 3. Run `python test.py --<args>` to test the model.
 ## Reference
 1. https://arxiv.org/abs/1907.03698   
-TrackNet: A Deep Learning Network for Tracking High-speed and Tiny Objects in Sports Applications
-2. https://github.com/xingniu/TrackNet/tree/master/TrackNet
-3. https://gitlab.com/lukelin/tracknet_practice.git
-4. https://arxiv.org/abs/1708.02002   
-Focal Loss for Dense Object Detection
+TrackNet: A Deep Learning Network for Tracking High-speed and Tiny Objects in Sports Applications       
+2. https://arxiv.org/abs/1708.02002   
+Focal Loss for Dense Object Detection       
+3. https://github.com/xingniu/TrackNet/tree/master/TrackNet
+4. https://gitlab.com/lukelin/tracknet_practice.git
