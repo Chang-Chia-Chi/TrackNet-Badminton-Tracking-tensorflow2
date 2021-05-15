@@ -94,7 +94,7 @@ TP, FP1, FP2, TN, FN are defined as below:
 3. Because the model is created with `channel first`, it could be trained and tested with GPU only.
 ## Label
 ![image](https://github.com/Chang-Chia-Chi/TrackNet-Badminton-Tracking-tensorflow2/blob/main/pics/image_label.jpg)    
-1. Run `python imgLabel.py` to open the programm.
+1. Run `python imgLabel.py` to open the program.
 2. Mouse and button events are described below:   
 
 |Mouse Event|Function|    
