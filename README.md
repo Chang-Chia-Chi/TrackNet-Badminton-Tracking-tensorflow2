@@ -142,7 +142,7 @@ TrackNet-Badminton-Tracking-tensorflow2
 ## Test
 1. Put video and csv file in `test` folder and change `--video_path` and `--label_path` in `parser.py` (or indicate when type script).
 2. If you don't want to compute performance of model, set `--label_path` as empty string `""`.
-3. Run `python test.py --<args>` to test the model.
+3. Run `python predict.py --<args>` to test the model.
 ## Reference
 1. https://arxiv.org/abs/1907.03698   
 TrackNet: A Deep Learning Network for Tracking High-speed and Tiny Objects in Sports Applications       
