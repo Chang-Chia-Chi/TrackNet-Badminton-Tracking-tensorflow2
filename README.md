@@ -1,4 +1,5 @@
 # TrackNet-Badminton-Tracking-tensorflow2
+PS: It's **not** a official implementation !
 ![image](https://github.com/Chang-Chia-Chi/TrackNet-Badminton-Tracking-tensorflow2/blob/main/pics/2_15_08_predict.gif)
 
 ## TrackNet
