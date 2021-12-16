@@ -149,5 +149,5 @@ TrackNet-Badminton-Tracking-tensorflow2
 TrackNet: A Deep Learning Network for Tracking High-speed and Tiny Objects in Sports Applications       
 2. https://arxiv.org/abs/1708.02002   
 Focal Loss for Dense Object Detection       
-3. https://github.com/xingniu/TrackNet/tree/master/TrackNet
-4. https://gitlab.com/lukelin/tracknet_practice.git
+3. https://nol.cs.nctu.edu.tw:234/open-source/TrackNetv2        
+TrackNetV2: Efficient TrackNet (GitLab)
