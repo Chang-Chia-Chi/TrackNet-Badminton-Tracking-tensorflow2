@@ -115,41 +115,34 @@ def data_generator(batch_size, x_list, y_list, frame_stack):
 
 	# initialize images and heatmaps array
     END = False
-    end = (frame_stack-1) + (batch_size-1)
-    images = [read_img(path) for path in x_list[:frame_stack]]
-    hmap = read_img(y_list[frame_stack-1], hmap=True)
+    idx = 0
     while True:
         batch_imgs = []
         batch_hmaps = []
 		
 		# dynamically pop and append a new image to avoid multiple reading
-        for i in reversed(range(batch_size)):
-            img = np.concatenate(images, axis=0)
-            batch_imgs.append(img)
-            images.pop(0)
-            images.append(read_img(x_list[end]))
-
-            batch_hmaps.append(hmap)
-            hmap = read_img(y_list[end], hmap=True)
-			
-            end += 1
-            if end >= data_size:
+        while len(batch_imgs) < batch_size:
+            if idx+frame_stack-1 >= data_size:
                 END = True
                 break
-			
-			# if image comes from different video, reset images and heat_maps
-            next_info = os.path.split(x_list[end])[-1].split('_')
-            curr_info = os.path.split(x_list[end-1])[-1].split('_')
-            if next_info[:-1] != curr_info[:-1]:
-                images = [read_img(path) for path in x_list[end:end+frame_stack]]
-                heat_maps = read_img(y_list[end+(frame_stack-1)], hmap=True)
-                end += frame_stack
-                break
+
+            # if image comes from different video, reset images and heat_maps
+            last = os.path.split(x_list[idx+frame_stack-1])[-1].split('_')
+            first = os.path.split(x_list[idx])[-1].split('_')
+            if last[:-1] != first[:-1]:
+                idx += frame_stack-1
+                continue
+
+            images = [read_img(path) for path in x_list[idx:idx+frame_stack]]
+            hmap = read_img(y_list[idx+frame_stack-1], hmap=True)
+            img = np.concatenate(images, axis=0)
+            batch_imgs.append(img)
+            batch_hmaps.append(hmap)
+            idx += 1
+
         if END:
             END=False
-            end = (frame_stack-1) + (batch_size-1)
-            images = [read_img(path) for path in x_list[:frame_stack]]
-            hmap = read_img(y_list[frame_stack-1], hmap=True)
+            idx = 0
             continue
         
         yield np.array(batch_imgs), np.array(batch_hmaps)
